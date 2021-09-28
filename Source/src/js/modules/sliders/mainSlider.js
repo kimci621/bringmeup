@@ -1,11 +1,10 @@
-export default class Slider {
-  constructor(page, buttons) {
-    this.page = document.querySelector(page);
-    this.slides = this.page.children;
-    this.buttons = document.querySelectorAll(buttons);
-    this.slideIndex = 1;
-  }
+import Slider from "./slider";
 
+export default class MainSlider extends Slider {
+  constructor(container, btns) {
+    super(container, btns);
+  }
+  
   showSlide(index) {
     if (index > this.slides.length) {
       this.slideIndex = 1;
@@ -27,12 +26,12 @@ export default class Slider {
 
   nextSlide(n) {
     this.showSlide(this.slideIndex = this.slideIndex + n);
-    this.animate(this.slideIndex - 1);
+    // this.animate(this.slideIndex - 1);
   }
 
   prevSlide(n) {
     this.showSlide(this.slideIndex = this.slideIndex - n);
-    this.animate(this.slideIndex);
+    // this.animate(this.slideIndex);
   }
 
   animate(i) {
@@ -51,7 +50,7 @@ export default class Slider {
         block.classList.add("fadeInUp");
         block.style.opacity = "1";
       }, 3000);
-    }else{
+    } else {
       block.classList.remove("fadeInUp");
     }
   }

@@ -2,6 +2,7 @@ import MainSlider from './modules/sliders/mainSlider';
 import VideoPlayer from './modules/playvideo';
 import MiniSlider from './modules/sliders/miniSlider';
 import Difference from './modules/difference';
+import PostInputs from './modules/postInputs';
 
 window.addEventListener('DOMContentLoaded', () => {
   //click case
@@ -19,7 +20,8 @@ window.addEventListener('DOMContentLoaded', () => {
     next: ".showup__next",
     prev: ".showup__prev",
     activeClass: "card-active",
-    animations: true
+    animations: true,
+    autoPlay: true
   });
   showupSlider.init();
   // -*-*-*-
@@ -44,5 +46,7 @@ window.addEventListener('DOMContentLoaded', () => {
   const videoPlayer = new VideoPlayer(".showup .play", ".overlay");
   videoPlayer.init();
   videoPlayer.play();
-
+  //inputs validation
+  const form = new PostInputs('.form');
+  form.init();
 });

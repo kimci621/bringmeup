@@ -1,8 +1,12 @@
 import MainSlider from './modules/sliders/mainSlider';
 import VideoPlayer from './modules/playvideo';
 import MiniSlider from './modules/sliders/miniSlider';
+import Difference from './modules/difference';
 
 window.addEventListener('DOMContentLoaded', () => {
+  //click case
+  const clickPage = new Difference('.officerold', '.officernew', '.officer__card-item');
+  clickPage.init();
   // main slider
   const slider = new MainSlider({
     container: ".page",

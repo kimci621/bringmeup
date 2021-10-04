@@ -16,7 +16,7 @@ export default class Slider {
     this.animations = animations;
     this.autoPlay = autoPlay;
     this.slideIndex = 1;
-    this.slides = this.container.children;
+    try{this.slides = this.container.children;}catch(e){}
   }
 
 }

@@ -8,37 +8,41 @@ export default class Difference {
   }
 
   clickTriggers() {
-    const addNew = (container, counter) => {
-      const itemsLength = container.querySelectorAll(this.items).length;
+    try {
+      const addNew = (container, counter) => {
+        const itemsLength = container.querySelectorAll(this.items).length;
 
-      container.querySelectorAll(this.items)[itemsLength - 1].addEventListener('click', () => {
-        container.querySelectorAll(this.items)[counter].classList.add("animated", "fadeInUp");
-        container.querySelectorAll(this.items)[counter].style.display = "flex";
-        if (counter < itemsLength) {
-          counter++;
-        }
-        if (counter === itemsLength - 1) {
-          container.querySelectorAll(this.items)[itemsLength - 1].style.display = "none";
-        }
-      });
-    };
+        container.querySelectorAll(this.items)[itemsLength - 1].addEventListener('click', () => {
+          container.querySelectorAll(this.items)[counter].classList.add("animated", "fadeInUp");
+          container.querySelectorAll(this.items)[counter].style.display = "flex";
+          if (counter < itemsLength) {
+            counter++;
+          }
+          if (counter === itemsLength - 1) {
+            container.querySelectorAll(this.items)[itemsLength - 1].style.display = "none";
+          }
+        });
+      };
 
-    addNew(this.oldContainer, this.newCounter);
-    addNew(this.newContainer, this.oldCounter);
+      addNew(this.oldContainer, this.newCounter);
+      addNew(this.newContainer, this.oldCounter);
+    }catch(e){}
   }
 
   hide() {
-    const lastActive = (container) => {
-      container.querySelectorAll(this.items).forEach((item, index, array) => {
-        if (index !== array.length - 1) {
-          item.classList.remove("animated", "fadeInUp");
-          item.style.display = "none";
-        }
-      });
-    };
+    try {
+      const lastActive = (container) => {
+        container.querySelectorAll(this.items).forEach((item, index, array) => {
+          if (index !== array.length - 1) {
+            item.classList.remove("animated", "fadeInUp");
+            item.style.display = "none";
+          }
+        });
+      };
 
-    lastActive(this.oldContainer);
-    lastActive(this.newContainer);
+      lastActive(this.oldContainer);
+      lastActive(this.newContainer);
+    } catch (e) {}
   }
 
   init() {

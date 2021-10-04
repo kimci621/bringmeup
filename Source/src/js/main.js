@@ -3,6 +3,8 @@ import VideoPlayer from './modules/playvideo';
 import MiniSlider from './modules/sliders/miniSlider';
 import Difference from './modules/difference';
 import PostInputs from './modules/postInputs';
+import Accordion from './modules/accordion';
+import Download from './modules/download';
 
 window.addEventListener('DOMContentLoaded', () => {
   //click case
@@ -56,4 +58,8 @@ window.addEventListener('DOMContentLoaded', () => {
     const form = new PostInputs('.form');
     form.init();
   } catch (e) {}
+  //mini click accordion
+  new Accordion(".module__info-show .plus").init();
+  //download btn
+  new Download(".download").init();
 });
